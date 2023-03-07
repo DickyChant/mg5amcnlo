@@ -3517,19 +3517,19 @@ class decay_all_events(object):
                         external.stdin.write(end_signal.encode())
                         external.stdin.flush()
                         external.stdout.flush()
-                        ranmar_state=external.stdout.readline().decode(errors='ignore')
-                        try:
-                            ranmar_file=pjoin(path,'ranmar_state.dat')
-                            ranmar=open(ranmar_file, 'w')
-                        except (PermissionError,FileNotFoundError):
-                            if not self.readonly:
-                                raise
-                            a, c = os.path.split(path)
-                            a, b = os.path.split(path)
-                            ranmar_file=pjoin(pjoin(b,c),'ranmar_state.dat')
-                            ranmar=open(ranmar_file, 'w')
-                        ranmar.write(ranmar_state)
-                        ranmar.close()
+                        # ranmar_state=external.stdout.readline().decode(errors='ignore')
+                        # try:
+                        #     ranmar_file=pjoin(path,'ranmar_state.dat')
+                        #     ranmar=open(ranmar_file, 'w')
+                        # except (PermissionError,FileNotFoundError):
+                        #     if not self.readonly:
+                        #         raise
+                        #     a, c = os.path.split(path)
+                        #     a, b = os.path.split(path)
+                        #     ranmar_file=pjoin(pjoin(b,c),'ranmar_state.dat')
+                        #     ranmar=open(ranmar_file, 'w')
+                        # ranmar.write(ranmar_state)
+                        # ranmar.close()
                     external.stdin.close()
                     external.stdout.close()
                     external.terminate()
